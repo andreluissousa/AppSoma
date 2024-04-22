@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import nfe from "./routes/plus";
 
@@ -16,6 +17,7 @@ class App {
 
   private middlewares(): void {
     this.express.use(express.json());
+    this.express.use(cors());
   }
 
 
