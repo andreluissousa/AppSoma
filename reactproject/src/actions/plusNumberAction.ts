@@ -9,7 +9,7 @@ const PlusCalculation = async (firstValue: any, secondValue: any) => {
       secondValue: parseInt(secondValue)
     });
 
-    if (response.data && response.data.sucesso) {
+    if (response.data && response.data.success) {
       return response.data.data;
     } else {
       throw new Error('Erro ao processar a soma. Por favor, tente novamente.');
