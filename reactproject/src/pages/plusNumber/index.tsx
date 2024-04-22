@@ -14,7 +14,13 @@ function PlusNumber() {
   const handleCalculate = async () => {
     setIsLoading(true);
     setError('');
-
+  
+    if (!firstValue || !secondValue) {
+      setError('Por favor, insira valores válidos para calcular.');
+      setIsLoading(false);
+      return;
+    }
+  
     try {
       const plusResult = await PlusCalculation(firstValue, secondValue);
       setResult(`Resultado: ${plusResult}`);
