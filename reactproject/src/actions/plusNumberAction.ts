@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:3000/api'
 
-const PlusCalculation = async (valor1: any, valor2: any) => {
+const PlusCalculation = async (firstValue: any, secondValue: any) => {
   try {
     const response = await axios.post(`${baseUrl}/plus`, {
-      firstValue: parseInt(valor1),
-      secondValue: parseInt(valor2)
+      firstValue: parseInt(firstValue),
+      secondValue: parseInt(secondValue)
     });
 
     if (response.data && response.data.sucesso) {

@@ -5,9 +5,9 @@ import InputComponent from '../../genericComponents/inputs';
 import ButtonComponent from '../../genericComponents/buttons';
 
 function PlusNumber() {
-  const [valor1, setValor1] = useState('');
-  const [valor2, setValor2] = useState('');
-  const [resultado, setResultado] = useState('');
+  const [firstValue, setFirstValue] = useState('');
+  const [secondValue, setSecondValue] = useState('');
+  const [resultado, setResult] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -16,8 +16,8 @@ function PlusNumber() {
     setError('');
 
     try {
-      const soma = await PlusCalculation(valor1, valor2);
-      setResultado(`Resultado: ${soma}`);
+      const plusResult = await PlusCalculation(firstValue, secondValue);
+      setResult(`Resultado: ${plusResult}`);
     } catch (error: any) {
       setError(error.message as string);
     } finally {
@@ -26,9 +26,9 @@ function PlusNumber() {
   };
 
   const handleClear = () => {
-    setValor1('');
-    setValor2('');
-    setResultado('');
+    setFirstValue('');
+    setSecondValue('');
+    setResult('');
     setError('');
   };
 
@@ -36,8 +36,8 @@ function PlusNumber() {
     <div className="container mt-5">
       <h2 className="mb-4">Calculadora de Soma</h2>
       <form className="row g-3 align-items-end">
-        <InputComponent label="Valor 1" value={valor1} onChange={(e) => setValor1(e.target.value)} />
-        <InputComponent label="Valor 2" value={valor2} onChange={(e) => setValor2(e.target.value)} />
+        <InputComponent label="Valor 1" value={firstValue} onChange={(e) => setFirstValue(e.target.value)} />
+        <InputComponent label="Valor 2" value={secondValue} onChange={(e) => setSecondValue(e.target.value)} />
         <ButtonComponent text="Calcular" onClick={handleCalculate} disabled={isLoading} isClear={false} />
         <ButtonComponent text="Limpar" onClick={handleClear} disabled={isLoading} isClear />
       </form>
