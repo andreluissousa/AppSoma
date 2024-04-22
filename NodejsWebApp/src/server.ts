@@ -1,11 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+import chalk from 'chalk';
+import app from "./app";
 
-app.use(bodyParser.json());
+const port = 3000;
 
-const port = 3000; /* process.env.PORT || */
+console.info("-------------------------------------------------------");
+console.info(chalk.blue(`Aplicação de soma rodando na porta ${3000}`));
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port} - v.0.11`);
-});
+app.listen(port);
